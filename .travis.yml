@@ -1,0 +1,5 @@
+language: csharp
+solution: UnitTestTest.sln
+script:
+  - xbuild /p:Configuration=Release UnitTestTest.sln
+  - mono ./testrunner/NUnit.Runners.*/tools/nunit-console.exe ./UnitTestTest.Tests/bin/Release/UnitTestTest.Tests.dll
