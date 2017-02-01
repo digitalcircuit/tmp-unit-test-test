@@ -4,6 +4,9 @@ sudo: false
 
 language: csharp
 solution: UnitTestTest.sln
+install:
+  - nuget restore UnitTestTest.sln
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release UnitTestTest.sln
   - mono ./testrunner/NUnit.Runners.*/tools/nunit-console.exe ./UnitTestTest.Tests/bin/Release/UnitTestTest.Tests.dll
